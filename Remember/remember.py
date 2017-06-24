@@ -10,14 +10,19 @@ def show():
         for line in file:
             print(line)
             
-
+def clear():
+    with open('database.txt', 'w') as file:
+        file.truncate()
+        print('All clear')
     
 if __name__ == '__main__':
     while True:
-        choice = (input('What shall I do: '))
+        choice = (input('What shall I do(r: add to list; l: show list; c: clear list; q: quit): '))
         if choice == 'r'.lower().strip():
             rememberer(input('What shoul I remember? '))
-        if choice == '--list'.lower().strip():
+        if choice == 'l'.lower().strip():
             show()
+        if choice == 'c'.lower().strip():
+            clear()
         if choice == 'q':
             break
